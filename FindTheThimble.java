@@ -6,11 +6,6 @@ public class FindTheThimble extends Game{
   private int numUserWins = 0;//The number of game that the user wins
   private int numGamesPlayed = 0;//The number of games played
 
-  //Constructor
-  //public FindTheThimble(int nGames){
-  //  numGames = nGames;
-  //}
-
   //The method that determines whether the game is over or not
   public boolean isGameOver(){
     return numGames == numGamesPlayed;
@@ -57,25 +52,13 @@ public class FindTheThimble extends Game{
     }
   }
 
-  /*
-  //The method to validate the input
-  public boolean validateInput(String s){
-    return s.equals("Right") || s.equals("Left");
-  }
-
-  //The static method to validate the number of games
-  public boolean validateNumGames(int i){
-    return i > 0;
-  }
-  */
-
   //The method to convert string to the integer
   public int convertGuessToInt(String s){
     if(s == "Right"){return 1;}
     else{return 0;}
   }
 
-
+  //Method to play
   public void play(){
     getInput g = new getInput();
     System.out.println("Input the number of games you want to play:");
@@ -104,29 +87,4 @@ public class FindTheThimble extends Game{
     FindTheThimble f = new FindTheThimble();
     f.play();
   }
-  //Main method
-  /*
-  public static void main(String[] args){
-    Scanner sc = new Scanner(System.in);
-    System.out.println("Input the number of games you want to play:");
-    int i = sc.nextInt();
-    while(!validateNumGames(i)){
-      System.out.println("Invalid Input. Input the number of games you want to play:");
-      i = sc.nextInt();
-    }
-    FindTheThimble f = new FindTheThimble(i);
-    while(!f.isGameOver()){
-      System.out.println("Enter Left or Right:");
-      String s = sc.next();
-      //System.out.println(s);
-      while(!f.validateInput(s)){
-        //System.out.println(f.validateInput(s));
-        System.out.println("Invalid input. Enter Left or Right:");
-        s = sc.next();
-      }
-      f.guess(s);
-    }
-    f.userWins();
-  }
-  */
 }
