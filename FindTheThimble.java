@@ -76,7 +76,7 @@ public class FindTheThimble extends Game{
   }
 
 
-  public boolean play(){
+  public void play(){
     getInput g = new getInput();
     System.out.println("Input the number of games you want to play:");
     int i = g.scanInt();
@@ -96,7 +96,8 @@ public class FindTheThimble extends Game{
       }
       guess(s);
     }
-    return(userWins());
+    if(userWins()){won++;played++;}
+    else{lost++;played++;}
   }
 
   public static void main(String[] args) {
