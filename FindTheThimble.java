@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class FindTheThimble{
+public class FindTheThimble extends Game{
   private int numGames = 0;//The number fo game total to play
   private int numUserWins = 0;//The number of game that the user wins
   private int numGamesPlayed = 0;//The number of games played
@@ -57,6 +57,7 @@ public class FindTheThimble{
     }
   }
 
+  /*
   //The method to validate the input
   public boolean validateInput(String s){
     return s.equals("Right") || s.equals("Left");
@@ -66,6 +67,7 @@ public class FindTheThimble{
   public boolean validateNumGames(int i){
     return i > 0;
   }
+  */
 
   //The method to convert string to the integer
   public int convertGuessToInt(String s){
@@ -75,22 +77,22 @@ public class FindTheThimble{
 
 
   public boolean play(){
-    Scanner sc = new Scanner(System.in);
+    getInput g = new getInput();
     System.out.println("Input the number of games you want to play:");
-    int i = sc.nextInt();
-    while(!validateNumGames(i)){
+    int i = g.scanInt();
+    while(!g.thimblevalidateNumGames(i)){
       System.out.println("Invalid Input. Input the number of games you want to play:");
-      i = sc.nextInt();
+      i = g.scanInt();
     }
     numGames = i;
     while(!isGameOver()){
       System.out.println("Enter Left or Right:");
-      String s = sc.next();
+      String s = g.scanString();
       //System.out.println(s);
-      while(!validateInput(s)){
+      while(!g.thimblevalidateInput(s)){
         //System.out.println(f.validateInput(s));
         System.out.println("Invalid input. Enter Left or Right:");
-        s = sc.next();
+        s = g.scanString();
       }
       guess(s);
     }
