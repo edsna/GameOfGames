@@ -71,9 +71,7 @@ public class FindTheThimble extends Game{
     while(!isGameOver()){
       System.out.println("Enter Left or Right:");
       String s = g.scanString();
-      //System.out.println(s);
       while(!g.thimblevalidateInput(s)){
-        //System.out.println(f.validateInput(s));
         System.out.println("Invalid input. Enter Left or Right:");
         s = g.scanString();
       }
